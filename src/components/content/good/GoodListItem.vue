@@ -1,10 +1,10 @@
 <template>
-  <div class="goods-item">
-    <img :src="goodItem.show.img" alt @load="imageload" />
+  <div class="goods-item" @click="itemClick">
+    <img :src="showImages" alt @load="imageload" />
     <div class="goods-info">
-      <p>{{goodItem.title}}</p>
-      <span class="price">{{goodItem.price}}</span>
-      <span class="collect">{{goodItem.sale}}</span>
+      <p>{{product.title}}</p>
+      <span class="price">{{product.price}}</span>
+      <span class="collect">{{product.sale}}</span>
     </div>
   </div>
 </template>
@@ -13,17 +13,30 @@
 export default {
   name: "GoodListItem",
   props: {
-    goodItem: {
+    product: {
       type: Object,
       default() {
         return {};
       }
     }
   },
+  computed:{
+    showImages(){
+      return  this.product.img || this.product.image || this.product.show.img;
+    }
+  },
   methods: {
     imageload() {
-      this.$bus.$emit('imageload')      
+      this.$bus.$emit('imageload')  
+  // console.log(this.goodItem);
+  
+    },
+    itemClick(){
+      this.$router.push("/detail/"+this.product.iid)
     }
+  },
+  mounted() {
+    
   }
 };
 </script>

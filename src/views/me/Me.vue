@@ -10,11 +10,9 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
     .me{
         color: red;
-        .h2{
-            font-size: 100px;;
-        }
+        
     }
 </style>

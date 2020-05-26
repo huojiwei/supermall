@@ -1,15 +1,17 @@
 <template>
   <div id="app">
-   <router-view></router-view>
-   <main-tab-bar> </main-tab-bar>
+    <keep-alive exclude="detail">
+      <router-view></router-view>
+    </keep-alive>
+    <main-tab-bar></main-tab-bar>
   </div>
 </template>
 
 <script>
-import MainTabBar from 'components/content/maintarbar/MainTarBar'
+import MainTabBar from "components/content/maintarbar/MainTarBar";
 
 export default {
-  name:'app',
+  name: "app",
   components: {
     // eslint-disable-next-line vue/no-unused-components
     MainTabBar
@@ -17,7 +19,7 @@ export default {
 };
 </script>
 
-<style>
+<style >
 /* @import "./assets/css/base.css"; */
-@import 'assets/css/base.css';
+@import "assets/css/base.css";
 </style>

@@ -47,16 +47,22 @@ export default {
     })
   },
   methods: {
+    //返回顶部
     scrollTo(x, y, time = 300) {
-      this.scroller && this.scroller.scrollTo(0, 0, time);
+      this.scroller && this.scroller.scrollTo(x, y, time);
+      // console.log('x==='+x+'y==='+y);
+      
     },
+    //上拉加载
     finishPullUp(){
       this.scroller && this.scroller.finishPullUp()
     },
+    //重新计算高度
     refresh(){
       this.scroller && this.scroller.refresh()
-      console.log("-----");
-      
+    },
+    getScrollY(){
+      return this.scroller ? this.scroller.y : 0
     }
   }
 };
